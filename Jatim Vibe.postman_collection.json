@@ -1,0 +1,157 @@
+{
+	"info": {
+		"_postman_id": "560c14b4-d15a-463e-b939-afe3f5e43c0e",
+		"name": "Jatim Vibe",
+		"description": "Malang Vibe API using flask",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26189693"
+	},
+	"item": [
+		{
+			"name": "Slides",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/slides",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"slides"
+					]
+				},
+				"description": "GET data slide, MAX 3 slide in FE (static place)\n\n_Body:_\n\n| **Key** | **Description** |\n| --- | --- |\n| id_slide | number |\n| url_image | string |\n| text | string |\n\n_Response: 200_\n\n``` json\n{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"text\": \"Random Text 1\",\n            \"url_image\": \"https://images.unsplash.com/photo-1476158085676-e67f57ed9ed7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1472&q=80\"\n        },\n        {\n            \"id\": 2,\n            \"text\": \"Random Text 2\",\n            \"url_image\": \"https://images.unsplash.com/photo-1541064828014-503911d13103?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80\"\n        },\n        {\n            \"id\": 3,\n            \"text\": \"Random Text 3\",\n            \"url_image\": \"https://images.unsplash.com/photo-1527965408463-82ae0731825c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80\"\n        }\n    ],\n    \"message\": \"success\"\n}\n\n```"
+			},
+			"response": []
+		},
+		{
+			"name": "Place",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/place",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"place"
+					]
+				},
+				"description": "GET data place from API\n\n_Body:_\n\n| **Key** | **Description** |\n| --- | --- |\n| id_place | number |\n| name | string |\n| regency | string |\n| url_image | string |\n\n_Response: 200_\n\n``` json\n{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Gunung Bromo\",\n            \"regency\": \"Kabupaten Probolinggo\",\n            \"url_image\": \"https://i.postimg.cc/Qt9R5W4n/1.jpg\"\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Kota Batu\",\n            \"regency\": \"Kota Batu\",\n            \"url_image\": \"https://i.postimg.cc/hPqHzv9p/2.jpg\"\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Alun-Alun Kota Malang\",\n            \"regency\": \"Kota Malang\",\n            \"url_image\": \"https://i.postimg.cc/5tGrx245/3.jpg\"\n        },\n        {\n            \"id\": 4,\n            \"name\": \"Taman Rekreasi Selecta\",\n            \"regency\": \"Kota Batu\",\n            \"url_image\": \"https://i.postimg.cc/kGPhbYtB/4.jpg\"\n        },\n        {\n            \"id\": 5,\n            \"name\": \"Air Terjun Coban Rais\",\n            \"regency\": \"Kecamatan Pujon\",\n            \"url_image\": \"https://i.postimg.cc/1X07c0pM/5.jpg\"\n        },\n        ...\n    ],\n    \"message\": \"success\"\n}\n\n```"
+			},
+			"response": []
+		},
+		{
+			"name": "New Review",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"creator\": \"tere\",\n    \"review\": \"good\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/place/:slug/review",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"place",
+						":slug",
+						"review"
+					],
+					"variable": [
+						{
+							"key": "slug",
+							"value": "slug-2"
+						}
+					]
+				},
+				"description": "CREATE new review to place"
+			},
+			"response": []
+		},
+		{
+			"name": "Place Spesific",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/place/slug-2",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"place",
+						"slug-2"
+					]
+				},
+				"description": "GET spesific place with slug"
+			},
+			"response": []
+		},
+		{
+			"name": "New Post",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Kirana\",\n    \"regency\": \"MALAM\",\n    \"url_image\": \"https://lh5.googleusercontent.com/p/AF1QipPO50Npo9rYVN46LXWdrfFfUAtVypvQq8rP60rZ=w548-h318-n-k-no\",\n    \"description\": \"Malang is a city in East Java, Indonesia. Prized by the Dutch for its mild highland climate, the city retains much of its colonial architecture. The Balai Kota building blends Indonesian and Dutch styles, and grand mansions line the main boulevard, Jalan Besar Ijen. North of the city, the Buddhist-Hindu Singosari Temple ruins are a remnant of a medieval kingdom. To the east is Mt. Bromo, a volcano with hiking trails.\",\n    \"price\": \"2juta - 3juta\",\n    \"schedule\": \"senin - juma'at\",\n    \"category\": \"nature\",\n    \"slug\": \"malam\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/place",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"place"
+					]
+				},
+				"description": "CREATE new post to database"
+			},
+			"response": []
+		}
+	]
+}
